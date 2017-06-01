@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+        <constant name="struts.devMode" value="true" />
+
+        <package name="fruit"  namespace="/fruit"  extends ="json-default">
+                <action name="getAllFruit" class="com.mytest.dao.test" method="getAllFruit">
+                        <result type="json">
+                                <!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+                                <param name="success">list</param>
+                        </result>
+                </action>
+
+                <!--返回json数据-->
+                <action name="retJson" class="com.mytest.dao.Json" method="retJson">
+                        <result type="json">
+                                <!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+                                <param name="success">dataMap</param>
+                        </result>
+                </action>
+
+                <!--返回json数组-->
+                <action name="retJsonArr" class="com.mytest.dao.StringToJSON" method="retJsonArr">
+                        <result type="json">
+                                <param name="success">bean</param>
+                        </result>
+                </action>
+        </package>
+
+        <!--用户注册登陆-->
+        <package name="user"  namespace="/user"  extends ="json-default">
+                <!--用户登陆-->
+                <action name="login" class="com.mytest.action.UserAction" method="login">
+                        <result type="json">
+                                <param name="root">loginResEntity</param>
+                        </result>
+                </action>
+                <!--用户注册-->
+                <action name="register" class="com.mytest.action.UserAction" method="register">
+                        <result type="json">
+                                <param name="root">registerResEntity</param>
+                        </result>
+                </action>
+        </package>
+
+        <!--首页配置-->
+        <package name="index"  namespace="/index"  extends ="json-default">
+                <!--banner配置-->
+                <action name="getBannerData" class="com.mytest.action.BannerAction" method="getBannerData">
+                        <result type="json">
+                                <!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+                                <param name="root">list</param>
+                        </result>
+                </action>
+        </package>
+
+
+</struts>

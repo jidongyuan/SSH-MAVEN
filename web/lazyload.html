@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图片懒加载处理</title>
+    <style>
+        img{
+            width:765px;
+            height:574px;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 100%;">
+    <img class="lazy" alt=""  data-original="img/bmw_m1_hood.jpg" />
+    <img class="lazy" alt=""  data-original="img/bmw_m1_side.jpg" />
+    <img class="lazy" alt=""  data-original="img/bmw_m3_gt.jpg" />
+    <img class="lazy" alt=""  data-original="img/corvette_pitstop.jpg" />
+    <img class="lazy" alt=""  data-original="img/viper_1.jpg" />
+    <img class="lazy" alt=""  data-original="img/viper_corner.jpg" />
+</div>
+
+
+<script charset="utf-8" src="js/jquery.min.js?v=01291"></script>
+<script charset="utf-8" src="js/jquery.lazyload.js"></script>
+<script type="text/javascript">
+    /* $("img.lazy").lazyload({
+     threshold : 200
+     });*/
+    $("img.lazy").lazyload();
+</script>
+</body>
+</html>
